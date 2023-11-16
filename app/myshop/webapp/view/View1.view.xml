@@ -1,0 +1,24 @@
+<mvc:View
+    controllerName="com.sap.myshop.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+    >
+        <content>
+            <List
+                headerText="Products"
+                headerLevel="H2"
+                items="{/Products}"
+            >
+                <StandardListItem
+                    title="{name}"
+                    counter="{quantity}"
+                />
+            </List>
+        </content>
+    </Page>
+</mvc:View>
