@@ -11,16 +11,20 @@ sap.ui.define(
                 this.getView().setModel(oCartModel);
             },
             onPlaceOrder: function () {
+                console.log("onPlaceOrder function is called");
                 debugger;
-                Fragment.load({
-                    id: this.getView().getId(),
-                    name: "com.sap.view.fragment.CustomerDetail",
-                    controller: this
-                }).then(oDialog => {
-                    this.getview().addDependent(oDialog)
-                    oDialog.open()
-                })
-            }
+            
+                if (!this._oDialog) {
+                    this._oDialog = sap.ui.xmlfragment(
+                        "com.sap.myshop.view.fragment.CustomerDetail",
+                        this
+                    );
+            
+                    this.getView().addDependent(this._oDialog);
+                }
+            
+                this._oDialog.open();
+            }            
         });
     }
 );
