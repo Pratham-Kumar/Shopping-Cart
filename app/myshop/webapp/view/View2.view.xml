@@ -6,20 +6,31 @@
 >
     <Page
         id="detailPage"
-        title="aa"
+        title="Your Item"
         showNavButton="true"
         navButtonPress="onBackPress"
+        
     >
         <content>
-            <!-- Display Product Details Here -->
+          <Toolbar >
+           <ToolbarSpacer/>
+          <Button icon="sap-icon://cart" text="MyCart"></Button>
+           </Toolbar>
+            
             <ObjectHeader
+               id="objectheader"
+               binding=""
                 title="{name}"
                 intro="{description}"
                 icon="{img}"
+                number="{price} INR"
             />
-            <!-- Add more ObjectAttributes or controls for additional details -->
-            <ObjectAttribute text="{price} INR" />
-            <!-- Additional details... -->
         </content>
+        <footer>
+        <OverflowToolbar >
+        <ToolbarSpacer ></ToolbarSpacer>
+        <Button text="Add to cart" icon="sap-icon://cart-4" press="onAddCart"></Button>
+        </OverflowToolbar>
+        </footer>
     </Page>
 </mvc:View>

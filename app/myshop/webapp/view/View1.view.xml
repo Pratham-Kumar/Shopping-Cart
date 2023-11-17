@@ -9,12 +9,6 @@
         title="{i18n>title}"
     >
         <content>
-            <NavContainer
-                id="navContainer"
-                initialPage="masterPage"
-                height="100%"
-            >
-                <!-- Master Page with Product List -->
                 <Page
                     id="masterPage"
                     title="Products"
@@ -27,6 +21,7 @@
                             mode="SingleSelectMaster"
                             itemPress="onProductSelect"
                         >
+                        
                             <ObjectListItem
                                 title="{name}"
                                 icon="{img}"
@@ -45,10 +40,6 @@
                         </List>
                     </content>
                 </Page>
- 
-                <!-- Detail Page -->
-               
-            </NavContainer>
         </content>
     </Page>
 </mvc:View>

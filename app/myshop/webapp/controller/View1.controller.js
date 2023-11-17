@@ -17,13 +17,13 @@ sap.ui.define([
             onProductSelect: function (oEvent) {
                
                 debugger;
-                let selectedRow=oEvent.getSource().getBindingContext().getObject()
+                let selectedRow=oEvent.getParameters().listItem.getBindingContext().getObject()
                 this.getOwnerComponent().getRouter().navTo("RouteView2",{
                     "ID":selectedRow.ID
                 })
             },
             onNav : function(){
                 this.getOwnerComponent().getRouter().navTo("RouteView2");
-            }
+            },
         });
     });
