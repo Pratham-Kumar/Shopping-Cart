@@ -113,6 +113,13 @@
                         "TargetView2"
                     ]
                     
+                },
+                {
+                    "pattern": "View3",
+                    "name": "RouteView3",
+                    "target": [
+                        "TargetView3"
+                    ]
                 }
             ],
             "targets": {
@@ -129,6 +136,11 @@
                     "clearControlAggregation": false,
                     "viewId": "View2",
                     "viewName": "View2"
+                },
+                "TargetView3": {
+                    "viewId": "View3",
+                    "viewName": "View3",
+                    "viewLevel": 3
                 }
             }
         },

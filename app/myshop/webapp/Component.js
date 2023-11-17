@@ -1,35 +1,24 @@
-/**
- * eslint-disable @sap/ui5-jsdocs/no-jsdoc
- */
-
 sap.ui.define([
-        "sap/ui/core/UIComponent",
-        "sap/ui/Device",
-        "com/sap/myshop/model/models"
-    ],
-    function (UIComponent, Device, models) {
-        "use strict";
+    "sap/ui/core/UIComponent",
+    "sap/ui/model/json/JSONModel"
+], function (UIComponent, JSONModel) {
+    "use strict";
 
-        return UIComponent.extend("com.sap.myshop.Component", {
-            metadata: {
-                manifest: "json"
-            },
+    return UIComponent.extend("com.sap.myshop.Component", {
+        metadata: {
+            manifest: "json"
+        },
 
-            /**
-             * The component is initialized by UI5 automatically during the startup of the app and calls the init method once.
-             * @public
-             * @override
-             */
-            init: function () {
-                // call the base component's init function
-                UIComponent.prototype.init.apply(this, arguments);
+        init: function () {
+            // Set up the central shopping cart model
+            var oCartModel = new JSONModel({
+                items: []
+            });
+            this.setModel(oCartModel, "cartModel");
 
-                // enable routing
-                this.getRouter().initialize();
-
-                // set the device model
-                this.setModel(models.createDeviceModel(), "device");
-            }
-        });
-    }
-);
+            // Initialize router
+            UIComponent.prototype.init.apply(this, arguments);
+            this.getRouter().initialize();
+        }
+    });
+});

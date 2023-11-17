@@ -14,7 +14,7 @@
         <content>
           <Toolbar >
            <ToolbarSpacer/>
-          <Button icon="sap-icon://cart" text="MyCart"></Button>
+          <Button icon="sap-icon://cart" text="MyCart" press="onMyCart"></Button>
            </Toolbar>
             
             <ObjectHeader

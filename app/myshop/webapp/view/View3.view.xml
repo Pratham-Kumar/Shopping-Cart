@@ -1,0 +1,22 @@
+<mvc:View
+    controllerName="com.sap.myshop.controller.View3"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+>
+    <Page title="My Cart">
+        <content>
+            <List
+                headerText="Shopping Cart"
+                headerLevel="H2"
+                items="{/items}"
+            >
+                <StandardListItem
+                    title="{name}"
+                    icon="{img}"
+                    description="{description}"
+                    info="{price} INR"
+                />
+            </List>
+        </content>
+    </Page>
+</mvc:View>

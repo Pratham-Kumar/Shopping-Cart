@@ -15,15 +15,24 @@ sap.ui.define([
                 return quantity > 0 ? "Success" : "Error";
             },
             onProductSelect: function (oEvent) {
-               
-                debugger;
-                let selectedRow=oEvent.getParameters().listItem.getBindingContext().getObject()
-                this.getOwnerComponent().getRouter().navTo("RouteView2",{
-                    "ID":selectedRow.ID
-                })
+                let selectedRow = oEvent.getParameters().listItem.getBindingContext().getObject();
+                this.getOwnerComponent().getRouter().navTo("RouteView2", {
+                    "ID": selectedRow.ID
+                });
             },
-            onNav : function(){
+    
+            onAddToCartPress: function (oEvent) {
+                var oSelectedItem = oEvent.getSource().getBindingContext("yourModelName").getObject();
+                var oCartModel = this.getOwnerComponent().getModel("cartModel");
+    
+                // Add the selected product to the cart
+                var aItems = oCartModel.getProperty("/items");
+                aItems.push(oSelectedItem);
+                oCartModel.setProperty("/items", aItems);
+            },
+    
+            onNav: function () {
                 this.getOwnerComponent().getRouter().navTo("RouteView2");
-            },
+            }
         });
     });
