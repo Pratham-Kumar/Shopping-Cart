@@ -1,0 +1,25 @@
+<core:FragmentDefinition
+    xmlns:form="sap.ui.layout.form"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <Dialog>
+        <content>
+            <form:SimpleForm>
+                <form:content>
+                    <Label text="Name" />
+                    <Input />
+                    <Label text="Mobile-No" />
+                    <Input />
+ 
+                    <Label text="Address" />
+                    <Input />
+                    <Input />
+                    <Input />
+                    <Label text="Pincode" />
+                    <Input />
+                </form:content>
+            </form:SimpleForm>
+        </content>
+    </Dialog>
+</core:FragmentDefinition>

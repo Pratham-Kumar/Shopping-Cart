@@ -6,7 +6,7 @@
     <Page title="My Cart">
         <content>
             <List
-                headerText="Shopping Cart"
+                headerText="Total Cart Items"
                 headerLevel="H2"
                 items="{/items}"
             >
@@ -18,5 +18,15 @@
                 />
             </List>
         </content>
+        <footer>
+            <OverflowToolbar>
+                <ToolbarSpacer />
+                <Button
+                    text="Place Order"
+                    icon="sap-icon://cart-4"
+                    press="onPlaceOrder"
+                />
+            </OverflowToolbar>
+        </footer>
     </Page>
 </mvc:View>

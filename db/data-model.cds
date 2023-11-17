@@ -18,4 +18,6 @@ entity Customer {
   key ID: Integer;
   name: String;
   address: String;
+  mobile: Integer;
+  pin_code: Integer;
 }
