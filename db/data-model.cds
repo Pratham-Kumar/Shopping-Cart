@@ -4,6 +4,9 @@ entity Product {
   name: String;
   price: Decimal(9, 2);
   quantity: Integer;
+  status: String;
+  description: String;
+  img: String;
 }
 entity Order {
   key ID: Integer;

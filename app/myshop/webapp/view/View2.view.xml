@@ -1,0 +1,9 @@
+<mvc:View
+    controllerName="com.sap.myshop.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+<Button text="Hello">
+</Button>
+</mvc:View>
