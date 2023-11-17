@@ -108,7 +108,7 @@
                 },
                 {
                     "name": "RouteView2",
-                    "pattern": "page2/{value1}",
+                    "pattern": "page2/{ID}",
                     "target": [
                         "TargetView2"
                     ]

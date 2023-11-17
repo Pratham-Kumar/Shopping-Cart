@@ -1,9 +1,25 @@
 <mvc:View
-    controllerName="com.sap.myshop.controller.View1"
+    controllerName="com.sap.myshop.controller.View2"
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
     xmlns="sap.m"
 >
-<Button text="Hello">
-</Button>
+    <Page
+        id="detailPage"
+        title="aa"
+        showNavButton="true"
+        navButtonPress="onBackPress"
+    >
+        <content>
+            <!-- Display Product Details Here -->
+            <ObjectHeader
+                title="{name}"
+                intro="{description}"
+                icon="{img}"
+            />
+            <!-- Add more ObjectAttributes or controls for additional details -->
+            <ObjectAttribute text="{price} INR" />
+            <!-- Additional details... -->
+        </content>
+    </Page>
 </mvc:View>

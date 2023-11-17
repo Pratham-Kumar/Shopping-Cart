@@ -25,13 +25,15 @@
                             headerLevel="H2"
                             items="{/Products}"
                             mode="SingleSelectMaster"
-                            selectionChange="onProductSelect"
+                            itemPress="onProductSelect"
                         >
                             <ObjectListItem
                                 title="{name}"
                                 icon="{img}"
                                 number="{price} INR"
                                 intro="{description}"
+                                type="Active"
+                                press="onNav"
                             >
                                 <firstStatus>
                                     <ObjectStatus text="{quantity} in stock" state="{path: 'quantity', formatter: '.stockStatusColor'}" />
@@ -43,26 +45,9 @@
                         </List>
                     </content>
                 </Page>
-
+ 
                 <!-- Detail Page -->
-                <Page
-                    id="detailPage"
-                    title="{selectedProduct>name}"
-                    showNavButton="true"
-                    navButtonPress="onBackPress"
-                >
-                    <content>
-                        <!-- Display Product Details Here -->
-                        <ObjectHeader
-                            title="{selectedProduct>name}"
-                            intro="{selectedProduct>description}"
-                            icon="{selectedProduct>img}"
-                        />
-                        <!-- Add more ObjectAttributes or controls for additional details -->
-                        <ObjectAttribute text="{selectedProduct>price} INR" />
-                        <!-- Additional details... -->
-                    </content>
-                </Page>
+               
             </NavContainer>
         </content>
     </Page>
