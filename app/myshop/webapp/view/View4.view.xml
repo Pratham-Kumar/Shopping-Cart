@@ -6,25 +6,35 @@
 >
     <Page title="Customer Details">
         <content>
-            <form:SimpleForm>
+            <form:SimpleForm editable="true">
                 <form:content>
                     <Label text="Name" />
-                    <Input id="name"/>
+                    <Input id="name" />
                     <Label text="Mobile-No" />
                     <Input id="mob" />
  
                     <Label text="Address" />
-                    <Input id="add"/>
-                   
+                    <Input id="add" />
+ 
                     <Label text="Pincode" />
                     <Input id="pin" />
                 </form:content>
             </form:SimpleForm>
         </content>
-        <Toolbar >
-        <ToolbarSpacer ></ToolbarSpacer>
-        <Button text="Confirm" type="Accept" press="confirmOrder"/>
-        <Button text="Cancel" type="Critical" press="onCancelOrder"/>
-        </Toolbar>
+        <footer>
+            <OverflowToolbar>
+                <ToolbarSpacer />
+                <Button
+                    text="Confirm"
+                    icon="sap-icon://accept"
+                    press="confirmOrder"
+                />
+                <Button
+                    text="Cancel"
+                    icon="sap-icon://decline"
+                    press="onCancelOrder"
+                />
+            </OverflowToolbar>
+        </footer>
     </Page>
 </mvc:View>
