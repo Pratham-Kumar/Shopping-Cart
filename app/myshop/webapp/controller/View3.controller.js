@@ -26,71 +26,53 @@ sap.ui.define(
                 cartModel.setProperty("/totalAmount", totalAmount);
             
                 // Update the Text control in the view with the formatted total amount
-                this.getView().byId("amount").setText(`Total Amount: ₹ ${totalAmount}`);
+                // this.getView().byId("amount").setText(`Total Amount: ₹ ${totalAmount}`);
             },
-            
             
             onPlaceOrder: function () {
-                console.log("onPlaceOrder function is called");
-                debugger;
-
-                if (!this._oDialog) {
-                    this._oDialog = sap.ui.xmlfragment(
-                        "com.sap.myshop.view.fragment.CustomerDetail",
-                        this
-                    );
-
-                    this.getView().addDependent(this._oDialog);
-                }
-
-                this._oDialog.open();
+                this.getOwnerComponent().getRouter().navTo("RouteView4");
+                   
             },
-            onCancelOrder: function () {
-                this.resetDialogFields();
-                this._oDialog.close();
-                this._oDialog.destroy();
-                this._oDialog = null;
-            },
-            resetDialogFields: function () {
-                var oContent = this._oDialog.getAggregation("content");
-
-                if (oContent) {
-                    var aFormContent = oContent[0].getAggregation("content");
-
-                    if (aFormContent) {
-                        aFormContent.forEach(function (oItem) {
-                            if (oItem.setValue) {
-                                oItem.setValue("");
-                            }
-                        });
-                    }
-                }
-            },
-            confirmOrder : function(){
+            
+            confirmOrder: function () {
                 const oModel = this.getOwnerComponent().getModel();
-               
-                const oName = this.getView().byId("name").getValue();
-                const oAddress = this.getView().byId("add").getValue();
-                const oMobile = this.getView().byId("mob").getValue();
-                const oPin_code = this.getView().byId("pin").getValue();
- 
-                let myData = {
-                    "name" : oName,
-                    "address" : oAddress,
-                    "mobile" : oMobile,
-                    "pin_code" : oPin_code
+            
+                // Access controls directly by ID
+                const oNameField = sap.ui.core.Fragment.byId("com.sap.myshop.view.fragment.CustomerDetail", "name");
+                const oAddressField = sap.ui.core.Fragment.byId("com.sap.myshop.view.fragment.CustomerDetail", "add");
+                const oMobileField = sap.ui.core.Fragment.byId("com.sap.myshop.view.fragment.CustomerDetail", "mob");
+                const oPinCodeField = sap.ui.core.Fragment.byId("com.sap.myshop.view.fragment.CustomerDetail", "pin");
+            
+                if (oNameField && oAddressField && oMobileField && oPinCodeField) {
+                    const oName = oNameField.getValue();
+                    const oAddress = oAddressField.getValue();
+                    const oMobile = oMobileField.getValue();
+                    const oPin_code = oPinCodeField.getValue();
+            
+                    let myData = {
+                        "name": oName,
+                        "address": oAddress,
+                        "mobile": parseInt(oMobile), // Convert to integer if mobile is numeric
+                        "pin_code": parseInt(oPin_code) // Convert to integer if pin_code is numeric
+                    };
+            
+                    oModel.create("/Customers", myData, {
+                        success: function (res) {
+                            MessageBox.success("Order confirmed successfully");
+                            console.log("Customer data saved successfully");
+                        },
+                        error: function (err) {
+                            MessageBox.error("Error confirming order");
+                        }
+                    });
+            
+                    // Close the dialog after confirming the order
+                    this._oDialog.close();
+                } else {
+                    console.error("One or more input fields are undefined. Check your IDs and ensure the controls exist.");
                 }
- 
-                oModel.create("/Customer", myData, {
-                    success: function (res) {
-                      MessageBox.success("saved successfully");
-                      console.log("done")
-                    },
-                    error: function (err) {
-                      MessageBox.error("ERROR");
-                    }
-                  })
             }
+            
         });
     }
 );

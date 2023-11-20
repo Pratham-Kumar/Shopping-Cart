@@ -20,7 +20,7 @@
         </content>
         <footer>
             <OverflowToolbar>
-            <Text id="amount" text="{/totalAmount}" />
+           <Text id="amount" text="Total Amount: ₹ {/totalAmount}" />
                 <ToolbarSpacer />
                 <Button
                     text="Place Order"

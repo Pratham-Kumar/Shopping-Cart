@@ -1,0 +1,30 @@
+<mvc:View
+    controllerName="com.sap.myshop.controller.View4"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form"
+>
+    <Page title="Customer Details">
+        <content>
+            <form:SimpleForm>
+                <form:content>
+                    <Label text="Name" />
+                    <Input id="name"/>
+                    <Label text="Mobile-No" />
+                    <Input id="mob" />
+ 
+                    <Label text="Address" />
+                    <Input id="add"/>
+                   
+                    <Label text="Pincode" />
+                    <Input id="pin" />
+                </form:content>
+            </form:SimpleForm>
+        </content>
+        <Toolbar >
+        <ToolbarSpacer ></ToolbarSpacer>
+        <Button text="Confirm" type="Accept" press="confirmOrder"/>
+        <Button text="Cancel" type="Critical" press="onCancelOrder"/>
+        </Toolbar>
+    </Page>
+</mvc:View>
