@@ -20,7 +20,7 @@
         </content>
         <footer>
             <OverflowToolbar>
-            <Label id="amount" text="Total Amount :"></Label>
+            <Text id="amount" text="{/totalAmount}" />
                 <ToolbarSpacer />
                 <Button
                     text="Place Order"

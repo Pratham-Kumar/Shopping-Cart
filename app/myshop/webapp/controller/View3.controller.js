@@ -10,6 +10,26 @@ sap.ui.define(
                 var oCartModel = this.getOwnerComponent().getModel("cartModel");
                 this.getView().setModel(oCartModel);
             },
+            onAfterRendering: function () {
+                this.updateTotalAmount();
+            },
+            updateTotalAmount: function () {
+                var cartModel = this.getView().getModel("cartModel");
+                var cartData = cartModel.getProperty("/items");
+                var totalAmount = 0;
+            
+                cartData.forEach(function (element) {
+                    totalAmount += parseInt(element.price);
+                });
+            
+                // Update the totalAmount property in the model
+                cartModel.setProperty("/totalAmount", totalAmount);
+            
+                // Update the Text control in the view with the formatted total amount
+                this.getView().byId("amount").setText(`Total Amount: ₹ ${totalAmount}`);
+            },
+            
+            
             onPlaceOrder: function () {
                 console.log("onPlaceOrder function is called");
                 debugger;
@@ -46,17 +66,30 @@ sap.ui.define(
                     }
                 }
             },
-            onAfterRendering : function(){
-                debugger;
-                let cartModel = this.getView().getModel("cartModel");
-                let cartData = cartModel.getProperty("/items");
-                let totalAmount = 0;
-                cartData.forEach((element)=>{
-                    totalAmount = totalAmount + parseInt(element.price);
-                   
-                })
-                this.getView().byId("amount").setText(`Total Amount : ₹ ${totalAmount}`);
+            confirmOrder : function(){
+                const oModel = this.getOwnerComponent().getModel();
                
+                const oName = this.getView().byId("name").getValue();
+                const oAddress = this.getView().byId("add").getValue();
+                const oMobile = this.getView().byId("mob").getValue();
+                const oPin_code = this.getView().byId("pin").getValue();
+ 
+                let myData = {
+                    "name" : oName,
+                    "address" : oAddress,
+                    "mobile" : oMobile,
+                    "pin_code" : oPin_code
+                }
+ 
+                oModel.create("/Customer", myData, {
+                    success: function (res) {
+                      MessageBox.success("saved successfully");
+                      console.log("done")
+                    },
+                    error: function (err) {
+                      MessageBox.error("ERROR");
+                    }
+                  })
             }
         });
     }
