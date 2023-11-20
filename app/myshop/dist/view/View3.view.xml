@@ -20,7 +20,6 @@
         </content>
         <footer>
             <OverflowToolbar>
-            <Label id="amount" text="Total Amount :"></Label>
                 <ToolbarSpacer />
                 <Button
                     text="Place Order"

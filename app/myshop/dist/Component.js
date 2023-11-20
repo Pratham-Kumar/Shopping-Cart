@@ -1,0 +1,1 @@
+sap.ui.define(["sap/ui/core/UIComponent","sap/ui/model/json/JSONModel"],function(t,e){"use strict";return t.extend("com.sap.myshop.Component",{metadata:{manifest:"json"},init:function(){var i=new e({items:[]});this.setModel(i,"cartModel");t.prototype.init.apply(this,arguments);this.getRouter().initialize()}})});

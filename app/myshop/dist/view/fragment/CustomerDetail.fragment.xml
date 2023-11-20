@@ -24,7 +24,7 @@
         <Toolbar >
         <ToolbarSpacer ></ToolbarSpacer>
         <Button text="Confirm" type="Accept" />
-        <Button text="Cancel" type="Critical" press="onCancelOrder"/>
+        <Button text="Cancel" type="Critical"/>
         </Toolbar>
     </Dialog>
 </core:FragmentDefinition>
