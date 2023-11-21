@@ -8,23 +8,22 @@
             <form:SimpleForm>
                 <form:content>
                     <Label text="Name" />
-                    <Input />
+                    <Input id="name"/>
                     <Label text="Mobile-No" />
-                    <Input />
-
+                    <Input id="mob" />
+ 
                     <Label text="Address" />
-                    <Input />
-                    <Input />
-                    <Input />
+                    <Input id="add"/>
+                   
                     <Label text="Pincode" />
-                    <Input />
+                    <Input id="pin" />
                 </form:content>
             </form:SimpleForm>
         </content>
         <Toolbar >
         <ToolbarSpacer ></ToolbarSpacer>
-        <Button text="Confirm" type="Accept" />
-        <Button text="Cancel" type="Critical"/>
+        <Button text="Confirm" type="Accept" press="confirmOrder"/>
+        <Button text="Cancel" type="Critical" press="onCancelOrder"/>
         </Toolbar>
     </Dialog>
 </core:FragmentDefinition>

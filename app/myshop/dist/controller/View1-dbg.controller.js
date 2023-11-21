@@ -33,6 +33,9 @@ sap.ui.define([
     
             onNav: function () {
                 this.getOwnerComponent().getRouter().navTo("RouteView2");
-            }
+            },
+            onMyCart:function(){
+                this.getOwnerComponent().getRouter().navTo("RouteView3")
+              }
         });
     });

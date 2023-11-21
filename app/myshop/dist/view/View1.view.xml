@@ -9,37 +9,49 @@
         title="{i18n>title}"
     >
         <content>
-                <Page
-                    id="masterPage"
-                    title="Products"
-                >
-                    <content>
-                        <List
-                            headerText="Products"
-                            headerLevel="H2"
-                            items="{/Products}"
-                            mode="SingleSelectMaster"
-                            itemPress="onProductSelect"
+            <Toolbar>
+                <ToolbarSpacer />
+                <Button
+                    icon="sap-icon://cart"
+                    text="MyCart"
+                    press="onMyCart"
+                />
+            </Toolbar>
+            <Page
+                id="masterPage"
+                title="Products"
+            >
+                <content>
+                    <List
+                        headerLevel="H2"
+                        items="{/Products}"
+                        mode="SingleSelectMaster"
+                        itemPress="onProductSelect"
+                    >
+                        <ObjectListItem
+                            title="{name}"
+                            icon="{img}"
+                            number="{price} INR"
+                            intro="{description}"
+                            type="Active"
+                            press="onNav"
                         >
-                        
-                            <ObjectListItem
-                                title="{name}"
-                                icon="{img}"
-                                number="{price} INR"
-                                intro="{description}"
-                                type="Active"
-                                press="onNav"
-                            >
-                                <firstStatus>
-                                    <ObjectStatus text="{quantity} in stock" state="{path: 'quantity', formatter: '.stockStatusColor'}" />
-                                </firstStatus>
-                                <secondStatus>
-                                    <ObjectStatus text="{= ${quantity} > 0 ? 'In Stock' : 'Out of Stock'}" state="{path: 'quantity', formatter: '.stockStatusColor'}" />
-                                </secondStatus>
-                            </ObjectListItem>
-                        </List>
-                    </content>
-                </Page>
+                            <firstStatus>
+                                <ObjectStatus
+                                    text="{quantity} in stock"
+                                    state="{path: 'quantity', formatter: '.stockStatusColor'}"
+                                />
+                            </firstStatus>
+                            <secondStatus>
+                                <ObjectStatus
+                                    text="{= ${quantity} > 0 ? 'In Stock' : 'Out of Stock'}"
+                                    state="{path: 'quantity', formatter: '.stockStatusColor'}"
+                                />
+                            </secondStatus>
+                        </ObjectListItem>
+                    </List>
+                </content>
+            </Page>
         </content>
     </Page>
 </mvc:View>
